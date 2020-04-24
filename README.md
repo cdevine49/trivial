@@ -12,7 +12,13 @@
 
 3. Build the service
 
+		$ docker-compose build --build-arg APP_USER_ID="$(id -u) --build-arg APP_GROUP_ID="$(id -g)
+
+	By default the APP_USER_ID and GROUP_USER_ID Dockerfile build args are both 1000. If your ids match the Dockerfile ids or you change the Dockerfile defaults, you can just run:
+
+
 		$ docker-compose build
+
 
 4. Create the application
 
