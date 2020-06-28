@@ -1,10 +1,12 @@
 FROM elixir:1.10.2-alpine
 MAINTAINER Conor Devine <conorjdevine@gmail.com>
 
-RUN apk update \
-	&& apk add nodejs=12.15.0-r1 \
-	&& apk add npm \
-	&& apk add inotify-tools
+RUN apk add --no-cache nodejs=12.15.0-r1 \
+	npm=12.15.0-r1 \
+	bash=5.0.11-r1 \
+	chromium=81.0.4044.113-r0 \
+	chromium-chromedriver=81.0.4044.113-r0 \
+	inotify-tools=3.20.1-r1
 
 ARG APP_USER=appuser
 ARG APP_GROUP=appgroup

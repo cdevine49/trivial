@@ -1,0 +1,16 @@
+<h1>Create Your Account</h1>
+
+<%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
+  <label>
+    Email
+    <%= text_input f, :email %>
+  </label>
+  <%= error_tag f, :email %>
+  <label>
+    Password
+   <%= password_input f, :password, "aria-describedby": "password-requirements"  %>
+  </label>
+  <span id="password-requirements">Must be at least 6 characters</span>
+  <%= error_tag f, :password %>
+  <button type="submit">Submit</button>
+<% end %>

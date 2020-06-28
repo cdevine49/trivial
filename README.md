@@ -1,44 +1,20 @@
-# Docker-Phoenix
+# Trivial
 
-## Getting Started
+To start your Phoenix server:
 
-1. Create the directory where your app will live
+  * Install dependencies with `mix deps.get`
+  * Create and migrate your database with `mix ecto.setup`
+  * Install Node.js dependencies with `cd assets && npm install`
+  * Start Phoenix endpoint with `mix phx.server`
 
-		$ mkdir path/to/blog
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-2. Clone this repo into that directory
+Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-		$ git clone git@github.com:cdevine49/docker-phoenix.git path/to/blog
+## Learn more
 
-3. Build the service
-
-		$ docker-compose build --build-arg APP_USER_ID="$(id -u)" --build-arg APP_GROUP_ID="$(id -g)"
-
-	By default the APP_USER_ID and GROUP_USER_ID Dockerfile build args are both 1000. If your ids match the Dockerfile ids or you change the Dockerfile defaults, you can just run:
-
-
-		$ docker-compose build
-
-
-4. Create the application
-
-		$ docker-compose run web mix phx.new . --app blog
-
-5. Modify `config/dev.exs` to point to the `db` container
-		
-		# Configure your database
-		config :blog, Blog.Repo,
-			username: "postgres",
-			password: "postgres",
-			database: "blog_dev",
-			hostname: "db",
-			show_sensitive_data_on_connection_error: true,
-			pool_size: 10
-
-6. Create the database
-
-		$ docker-compose run web mix ecto.create
-
-7. Start the application
-
-		$ docker-compose up
+  * Official website: https://www.phoenixframework.org/
+  * Guides: https://hexdocs.pm/phoenix/overview.html
+  * Docs: https://hexdocs.pm/phoenix
+  * Forum: https://elixirforum.com/c/phoenix-forum
+  * Source: https://github.com/phoenixframework/phoenix
